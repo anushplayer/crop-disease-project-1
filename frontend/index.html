@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Disease & Recommendation System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Disease Analysis & Recommendation</h1>
+        
+        <div class="section">
+            <h2>Disease Detection</h2>
+            <form id="disease-form">
+                <input type="file" id="image-upload" accept="image/*" required>
+                <button type="submit">Analyze Disease</button>
+            </form>
+            <div id="disease-result" class="result"></div>
+        </div>
+        
+        <div class="section">
+            <h2>Crop Recommendation</h2>
+            <form id="recommendation-form">
+                <div class="form-group">
+                    <label for="nitrogen">Nitrogen:</label>
+                    <input type="number" id="nitrogen" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="phosphorus">Phosphorus:</label>
+                    <input type="number" id="phosphorus" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="potassium">Potassium:</label>
+                    <input type="number" id="potassium" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="temperature">Temperature (°C):</label>
+                    <input type="number" id="temperature" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="humidity">Humidity (%):</label>
+                    <input type="number" id="humidity" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="ph">pH:</label>
+                    <input type="number" id="ph" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="rainfall">Rainfall (mm):</label>
+                    <input type="number" id="rainfall" step="0.1" required>
+                </div>
+                <button type="submit">Get Recommendation</button>
+            </form>
+            <div id="recommendation-result" class="result"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
