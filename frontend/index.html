@@ -3,58 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crop Disease & Recommendation System</title>
+    <title>CropAI - Smart Agriculture Solutions</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Crop Disease Analysis & Recommendation</h1>
-        
-        <div class="section">
-            <h2>Disease Detection</h2>
-            <form id="disease-form">
-                <input type="file" id="image-upload" accept="image/*" required>
-                <button type="submit">Analyze Disease</button>
-            </form>
-            <div id="disease-result" class="result"></div>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🌾 CropAI</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#contact" class="cta-btn">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <h1>Driving Innovation with AI-Powered Agriculture</h1>
+            <p>Transforming farming through intelligent crop disease detection and data-driven soil analysis for smarter, sustainable agricultural decisions.</p>
+            <a href="#services" class="cta-button">Get Started</a>
         </div>
-        
-        <div class="section">
-            <h2>Crop Recommendation</h2>
-            <form id="recommendation-form">
-                <div class="form-group">
-                    <label for="nitrogen">Nitrogen:</label>
-                    <input type="number" id="nitrogen" step="0.1" required>
-                </div>
-                <div class="form-group">
-                    <label for="phosphorus">Phosphorus:</label>
-                    <input type="number" id="phosphorus" step="0.1" required>
-                </div>
-                <div class="form-group">
-                    <label for="potassium">Potassium:</label>
-                    <input type="number" id="potassium" step="0.1" required>
-                </div>
-                <div class="form-group">
-                    <label for="temperature">Temperature (°C):</label>
-                    <input type="number" id="temperature" step="0.1" required>
-                </div>
-                <div class="form-group">
-                    <label for="humidity">Humidity (%):</label>
-                    <input type="number" id="humidity" step="0.1" required>
-                </div>
-                <div class="form-group">
-                    <label for="ph">pH:</label>
-                    <input type="number" id="ph" step="0.1" required>
-                </div>
-                <div class="form-group">
-                    <label for="rainfall">Rainfall (mm):</label>
-                    <input type="number" id="rainfall" step="0.1" required>
-                </div>
-                <button type="submit">Get Recommendation</button>
-            </form>
-            <div id="recommendation-result" class="result"></div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-item">
+            <h2>98%</h2>
+            <p>Detection Accuracy</p>
         </div>
-    </div>
+        <div class="stat-item">
+            <h2>500+</h2>
+            <p>Crop Varieties Analyzed</p>
+        </div>
+        <div class="stat-item">
+            <h2>24/7</h2>
+            <p>Real-Time Analysis</p>
+        </div>
+        <div class="stat-item">
+            <h2>10K+</h2>
+            <p>Farmers Supported</p>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard" id="services">
+        <h2 class="section-title">Smart Agriculture Dashboard</h2>
+        
+        <div class="dashboard-grid">
+            <!-- Crop Recommendation Box -->
+            <div class="dashboard-box">
+                <div class="box-header">
+                    <div class="box-icon">🌱</div>
+                    <h3>Crop Recommendation</h3>
+                </div>
+                <div class="box-content">
+                    <p class="box-description">Get AI-powered crop suggestions based on soil and climate data</p>
+                    <form id="recommendation-form" class="compact-form">
+                        <div class="form-row">
+                            <input type="number" id="nitrogen" step="0.1" placeholder="Nitrogen (N)" required>
+                            <input type="number" id="phosphorus" step="0.1" placeholder="Phosphorus (P)" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="potassium" step="0.1" placeholder="Potassium (K)" required>
+                            <input type="number" id="temperature" step="0.1" placeholder="Temperature °C" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="humidity" step="0.1" placeholder="Humidity %" required>
+                            <input type="number" id="ph" step="0.1" placeholder="pH Level" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="number" id="rainfall" step="0.1" placeholder="Rainfall (mm)" required>
+                            <select id="soil-type">
+                                <option value="">Soil Type</option>
+                                <option value="Sandy">Sandy</option>
+                                <option value="Clay">Clay</option>
+                                <option value="Silty">Silty</option>
+                                <option value="Loamy">Loamy</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="box-btn">Get Recommendation</button>
+                    </form>
+                    <div id="recommendation-result" class="result"></div>
+                </div>
+            </div>
+
+            <!-- Disease Analysis Box -->
+            <div class="dashboard-box">
+                <div class="box-header">
+                    <div class="box-icon">🔬</div>
+                    <h3>Disease Analysis</h3>
+                </div>
+                <div class="box-content">
+                    <p class="box-description">Upload crop images for instant AI-powered disease detection</p>
+                    <form id="disease-form" class="compact-form">
+                        <div class="file-upload-area">
+                            <input type="file" id="image-upload" accept="image/*" required>
+                            <label for="image-upload" class="upload-label">
+                                <span class="upload-icon">📸</span>
+                                <span class="upload-text">Choose Crop Image</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="box-btn">Analyze Disease</button>
+                    </form>
+                    <div id="disease-result" class="result"></div>
+                </div>
+            </div>
+
+            <!-- Weather Box -->
+            <div class="dashboard-box">
+                <div class="box-header">
+                    <div class="box-icon">🌤️</div>
+                    <h3>Weather Forecast</h3>
+                </div>
+                <div class="box-content">
+                    <p class="box-description">Real-time weather updates for better farming decisions</p>
+                    <form id="weather-form" class="compact-form">
+                        <input type="text" id="location" placeholder="Enter your location" required>
+                        <button type="submit" class="box-btn">Get Weather</button>
+                    </form>
+                    <div id="weather-result" class="weather-display">
+                        <div class="weather-info">
+                            <div class="weather-item">
+                                <span class="weather-label">Temperature</span>
+                                <span class="weather-value" id="temp-value">--°C</span>
+                            </div>
+                            <div class="weather-item">
+                                <span class="weather-label">Humidity</span>
+                                <span class="weather-value" id="humidity-value">--%</span>
+                            </div>
+                            <div class="weather-item">
+                                <span class="weather-label">Conditions</span>
+                                <span class="weather-value" id="conditions-value">--</span>
+                            </div>
+                            <div class="weather-item">
+                                <span class="weather-label">Wind Speed</span>
+                                <span class="weather-value" id="wind-value">-- km/h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-time Price Box -->
+            <div class="dashboard-box">
+                <div class="box-header">
+                    <div class="box-icon">💰</div>
+                    <h3>Market Prices</h3>
+                </div>
+                <div class="box-content">
+                    <p class="box-description">Live market prices for agricultural commodities</p>
+                    <form id="price-form" class="compact-form">
+                        <select id="crop-select" required>
+                            <option value="">Select Crop</option>
+                            <option value="Rice">Rice</option>
+                            <option value="Wheat">Wheat</option>
+                            <option value="Cotton">Cotton</option>
+                            <option value="Sugarcane">Sugarcane</option>
+                            <option value="Maize">Maize</option>
+                            <option value="Potato">Potato</option>
+                            <option value="Tomato">Tomato</option>
+                        </select>
+                        <input type="text" id="market-location" placeholder="Market location" required>
+                        <button type="submit" class="box-btn">Check Price</button>
+                    </form>
+                    <div id="price-result" class="price-display">
+                        <div class="price-info">
+                            <div class="price-item">
+                                <span class="price-label">Current Price</span>
+                                <span class="price-value" id="current-price">--</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Previous Price</span>
+                                <span class="price-value" id="prev-price">--</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Change</span>
+                                <span class="price-value" id="price-change">--</span>
+                            </div>
+                            <div class="price-item">
+                                <span class="price-label">Market Trend</span>
+                                <span class="price-value" id="price-trend">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact" id="impact">
+        <h2 class="section-title">Data-Driven Impact</h2>
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="impact-icon">💡</div>
+                <h3>Thought Leadership in Agriculture</h3>
+                <p>We leverage cutting-edge AI and machine learning to deliver actionable insights that empower farmers to make informed decisions and maximize crop yields.</p>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon">🎯</div>
+                <h3>Precision Agriculture Solutions</h3>
+                <p>Our intelligent systems analyze soil composition, climate patterns, and crop health to provide precise recommendations tailored to your specific farming conditions.</p>
+            </div>
+            <div class="impact-card">
+                <div class="impact-icon">🌍</div>
+                <h3>Sustainable Farming Future</h3>
+                <p>By optimizing resource utilization and early disease detection, we help reduce waste, minimize environmental impact, and promote sustainable agricultural practices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <p>&copy; 2025 CropAI. Empowering farmers with intelligent agriculture solutions.</p>
+            <p>Contact: <a href="mailto:info@cropai.com">info@cropai.com</a></p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

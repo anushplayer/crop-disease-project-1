@@ -1,0 +1,21 @@
+# Ignore large datasets and artifacts
+# Datasets
+/data/**
+!data/.gitkeep
+
+# Model weights (binary)
+*.pth
+*.pt
+
+# Caches
+__pycache__/
+*.py[cod]
+/.venv/
+.cache/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

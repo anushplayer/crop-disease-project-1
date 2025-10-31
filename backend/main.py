@@ -8,7 +8,17 @@ import joblib
 import numpy as np
 import os
 
+# Import kagglehub for dataset download
+import kagglehub
+
 app = FastAPI(title="Crop Disease & Recommendation API")
+
+# Download latest version of the crop and soil dataset from Kaggle
+try:
+    dataset_path = kagglehub.dataset_download("shankarpriya2913/crop-and-soil-dataset")
+    print("Path to dataset files:", dataset_path)
+except Exception as e:
+    print("Failed to download dataset from KaggleHub:", e)
 
 # Load models (assuming they exist)
 disease_model = None
@@ -22,6 +32,7 @@ class SoilData(BaseModel):
     humidity: float
     ph: float
     rainfall: float
+    soil_type: str = None  # Optional: e.g., "Sandy", "Clay", "Silty", etc.
 
 @app.get("/health")
 async def health_check():
@@ -48,8 +59,14 @@ async def predict_disease(file: UploadFile = File(...)):
 
 @app.post("/recommend-crop")
 async def recommend_crop(data: SoilData):
-    # Mock recommendation (replace with actual model)
-    crops = ["Rice", "Wheat", "Cotton", "Sugarcane", "Maize"]
-    recommendation = crops[np.random.randint(0, len(crops))]
-    
-    return JSONResponse(content={"recommended_crop": recommendation})
+    # Example: Use soil_type in recommendation logic (mock)
+    crops_by_soil = {
+        "Sandy": ["Peanut", "Watermelon", "Cotton"],
+        "Clay": ["Rice", "Wheat", "Soybean"],
+        "Silty": ["Maize", "Sugarcane", "Potato"],
+        "Loamy": ["Tomato", "Carrot", "Onion"],
+        None: ["Rice", "Wheat", "Cotton", "Sugarcane", "Maize"]
+    }
+    possible_crops = crops_by_soil.get(data.soil_type, crops_by_soil[None])
+    recommendation = possible_crops[np.random.randint(0, len(possible_crops))]
+    return JSONResponse(content={"recommended_crop": recommendation, "soil_type": data.soil_type})

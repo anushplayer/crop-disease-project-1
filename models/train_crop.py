@@ -3,13 +3,15 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 import joblib
+import numpy as np
 import os
 
 def train_crop_recommendation_model():
-    # Load dataset (replace with actual crop dataset)
-    # For demo, creating synthetic data
+    print("Training lightweight crop recommendation model...")
+    
+    # Create minimal synthetic data to save disk space
     np.random.seed(42)
-    n_samples = 1000
+    n_samples = 200  # Reduced from 1000 to save space
     
     data = {
         'nitrogen': np.random.uniform(0, 140, n_samples),
@@ -31,8 +33,8 @@ def train_crop_recommendation_model():
     # Split data
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
-    # Train model
-    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    # Train lightweight model (reduced estimators to save space)
+    model = RandomForestClassifier(n_estimators=20, random_state=42, max_depth=5)
     model.fit(X_train, y_train)
     
     # Evaluate
@@ -42,8 +44,7 @@ def train_crop_recommendation_model():
     
     # Save model
     joblib.dump(model, 'crop_recommendation_model.pkl')
-    print("Crop recommendation model saved!")
+    print("✅ Crop recommendation model saved successfully! (Lightweight version)")
 
 if __name__ == "__main__":
-    import numpy as np
     train_crop_recommendation_model()
